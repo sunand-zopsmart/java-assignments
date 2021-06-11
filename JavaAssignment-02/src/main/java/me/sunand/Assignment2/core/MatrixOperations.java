@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class MatrixOperations{
     public static void main(String [] args)
     {
-        Scanner sc=new Scanner(System.in);
-        int r1,c1;
+        Scanner sc=new Scanner(System.in);// Scanner object for taking input
+        int r1,c1;//Rows and columns for matrix A
         System.out.println("Enter the details of Matrix A");
         System.out.print("Enter the number of rows- ");
         r1=sc.nextInt();
@@ -13,7 +13,7 @@ public class MatrixOperations{
         System.out.println("Enter the elements of Matrix A");
         int[][] A= new int[r1][c1];
         A=input(r1,c1);
-        int r2,c2;
+        int r2,c2;//Rows and columns for matrix B
         System.out.println("Enter the details of Matrix B");
         System.out.print("Enter the number of rows- ");
         r2=sc.nextInt();
@@ -34,7 +34,7 @@ public class MatrixOperations{
             scalar(r1,c1,A);
         else if(c=='B')
             scalar(r2,c2,B);
-        else
+        else //If the chosen matrix is neither A nor B
             System.out.println("Invalid Matrix");
         System.out.println("Which matrix you want to pass for transpose: Enter A or B");
         c=sc.next().charAt(0);
@@ -42,10 +42,11 @@ public class MatrixOperations{
             transpose(r1,c1,A);
         else if(c=='B')
             transpose(r2,c2,B);
-        else
+        else //If the chosen matrix is neither A nor B
             System.out.println("Invalid Matrix");
     }
     private static int[][] input(int r,int c){
+        //This function returns 2D matrix
         int[][] M= new int[r][c];
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<r;i++){
@@ -55,6 +56,7 @@ public class MatrixOperations{
         return M;
     }
     private static void add(int r1,int c1,int r2,int c2,int[][] A,int[][] B){
+        //This function adds two matrices
         if((r1!=r2)||(c1!=c2))
             System.err.println("Matrices not compatible for addition");
         else
@@ -68,6 +70,7 @@ public class MatrixOperations{
         }
     }
     private static void subtract(int r1,int c1,int r2,int c2,int[][] A,int[][] B){
+        //This function subtracts two matrices
         if((r1!=r2)||(c1!=c2))
             System.err.println("Matrices not compatible for subtraction");
         else
@@ -81,6 +84,7 @@ public class MatrixOperations{
         }
     }
     private static void multiply(int r1,int c1,int r2,int c2,int[][] A,int[][] B){
+        //This function multiplies two matrices
         if(c1!=r2)
             System.err.println("Matrices not compatible for multiplication");
         else
@@ -98,6 +102,7 @@ public class MatrixOperations{
         }
     }
     private static void scalar(int r,int c,int[][] M){
+        //This function performs scalar multiplication
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter the scalar");
         int k=sc.nextInt();
@@ -109,6 +114,7 @@ public class MatrixOperations{
         }
     }
     private static void transpose(int r,int c,int[][] M){
+        //This function returns the transpose of the matrix.
         System.out.println("Transpose Result: ");
         for(int j=0;j<c;j++){
             for(int i=0;i<r;i++)
