@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'me.sunand.Assignment2.core'
+group 'me.sunand.assignment2.core'
 version '1.0-SNAPSHOT'
 
 repositories {

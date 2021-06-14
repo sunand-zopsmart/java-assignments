@@ -1,4 +1,4 @@
-package me.sunand.Assignment2.core;
+package me.sunand.assignment2.core;
 import java.util.Scanner;
 public class MatrixOperations{
     public static void main(String [] args)
