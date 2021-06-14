@@ -1,5 +1,3 @@
 rootProject.name = 'java-assignments'
-include 'JavaAssignment-02'
-include 'Java-Assignment03'
 include 'JavaAssignment-03'
 
