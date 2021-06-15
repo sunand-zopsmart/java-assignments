@@ -1,2 +1,3 @@
 rootProject.name = 'java-assignments'
+include 'JavaAssignment-04'
 
