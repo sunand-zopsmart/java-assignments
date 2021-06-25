@@ -1,0 +1,27 @@
+ 
+     Firstly define the schema 
+    
+    create table students(id serial primary key,first_name varchar(50),last_name varchar(50),mobile varchar(40));
+
+    Question 1 & 2: Generate million records and load the records in the database
+    
+    ------->  insert into students(first_name,last_name,mobile) select left(md5(random()::text),10),left(md5(random::text),10),left(md5(i::text),10) from generate_series(1,1000000) s(i);
+
+    Question 3: Create a table with 3 departments (CS,EE,Mech)
+
+    --------> create table departments(id serial primary key,dept_name varchar(10));
+              insert into departments (id,dept_name) values (1,'CS'),(2,'EE'),(3,'Mech');
+
+    Question 4: Assign departments to students randomly through a mapping table
+    
+    --------> create table student_department(id serial primary key,sid serial NOT NULL,did serial NOT NULL,foreign key(sid) references students(id),
+              foreign key(did) references departments(id));
+              
+	      insert into student_department(sid,did) select i,floor(random() * (3-1+1)+1)::int from generate_series(1,1000000) s(i) inner join students on students.id=i;
+
+    Question 5: Extract the data in file
+
+    --------> docker cp zs-intern-pgsql:/myfile.csv D:\
+
+    Questio 6: Reduce the size of the file
+    --------> 
