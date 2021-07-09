@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.zopsmart.assignments'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '15'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+def versionLog4j = '2.14.1'
+def versionLombok = '1.18.20'
+def versionMockito = '3.11.2'
+
+dependencies {
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: versionLog4j
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: versionLog4j
+    implementation group: 'org.projectlombok', name: 'lombok', version: versionLombok
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: versionLombok
+    implementation group: 'com.datastax.cassandra', name: 'cassandra-driver-core', version: '3.11.0'
+
+    // Use JUnit Jupiter API for testing.
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.6.2'
+    testImplementation group: 'org.mockito', name: 'mockito-inline', version: versionMockito
+    testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: versionMockito
+
+    implementation "org.slf4j:slf4j-simple:1.7.9"
+}
+test {
+    useJUnitPlatform()
+}
+
